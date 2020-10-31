@@ -1,4 +1,4 @@
-class Api::UpdateHistoriesController < ActionController::API
+class Api::UpdateHistoriesController < ApplicationController
   def index
     @update_histories = UpdateHistory.all.order(created_at: :desc)
   end
@@ -7,9 +7,9 @@ class Api::UpdateHistoriesController < ActionController::API
     @update_history = UpdateHistory.new(opp_params)
 
     if @update_history.save
-      render json: { message: "ok" }, status: 200
+      render json: { message: "ok" }, status: :ok
     else
-      render json: { message: "bad request" }, status: 400
+      render json: { message: "bad request" }, status: :bad_request
     end
   end
 
