@@ -1,6 +1,6 @@
 class Api::UpdateHistoriesController < ApiController
   def index
-    @update_histories = JSON.parse(UpdateHistory.group(:opp_id).select("max(created_at) as max, count(opp_id) as count, opp_id").to_json)
+    @update_histories = UpdateHistory.fetch_list(params[:type])
   end
 
   def create
