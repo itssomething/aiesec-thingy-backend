@@ -1,4 +1,4 @@
-class Api::UpdateHistoriesController < ApplicationController
+class Api::UpdateHistoriesController < ApiController
   def index
     @update_histories = UpdateHistory.all.order(created_at: :desc)
   end

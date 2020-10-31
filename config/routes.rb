@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :update_histories, only: [:index, :create]
   end
+
+  resource :ping, only: [:show]
 end
