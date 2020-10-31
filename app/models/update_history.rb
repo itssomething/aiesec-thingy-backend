@@ -18,6 +18,7 @@ class UpdateHistory < ApplicationRecord
 
       if type == "recently"
         query = query.order(max: :desc)
+        # does not work with mysql
       elsif type == "edit_count"
         query = query.order(count: :desc)
       else
